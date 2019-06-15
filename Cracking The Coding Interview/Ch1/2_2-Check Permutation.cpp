@@ -6,7 +6,7 @@ bool check_permutation(string A, string B) {
         return false;
     }
 
-    int table[26];
+    static int table[26];
     for(int i=0; i<A.length(); i++) {
         table[A[i]-'a']++;
     }
@@ -21,16 +21,11 @@ bool check_permutation(string A, string B) {
 
 int main() {
 	string A, B;
-    int T;
-    
-    cin >> T;
-    while(T--) {
-    	cin >> A >> B;
-    	
-    	if(anagram(A, B)) {
-    	    cout << "YES" << endl;
-    	} else {
-    	    cout << "NO" << endl;
-    	}
-    }
+	cin >> A >> B;
+	
+	if(check_permutation(A, B)) {
+	    cout << "YES" << endl;
+	} else {
+	    cout << "NO" << endl;
+	}
 }
