@@ -1,3 +1,7 @@
+// Bubble Sort
+// Time Complexity:    O(n^2)  θ(n^2)  Ω(n)
+// Space Complexity:   O(1)
+
 #include <iostream>
 using namespace std;
 
