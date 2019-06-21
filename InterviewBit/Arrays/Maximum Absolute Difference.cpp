@@ -1,10 +1,16 @@
 int Solution::maxArr(vector<int> &A) {
-    int n = A.size();
-    int ans = INT_MIN;
-    for(int i=0; i<n-1; i++) {
-        for(int j=1; j<n; j++) {
-            ans = max(ans, abs(A[i]-A[j])+abs(i-j));
-        }
+    int max1 = INT_MIN, max2 = INT_MIN;
+    int min1 = INT_MAX, min2 = INT_MAX;
+    int sum = INT_MIN;
+    
+    for (int i=0; i<A.size(); i++)
+    {
+        max1 = max(max1, A[i]+i);
+        max2 = max(max2, A[i]-i);
+        min1 = min(min1, A[i]+i);
+        min2 = min(min2, A[i]-i);
     }
-    return ans;
+    sum = max(max1-min1, max2-min2);
+    return sum;
+
 }
