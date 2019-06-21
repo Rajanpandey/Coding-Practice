@@ -17,5 +17,4 @@ string Solution::longestCommonPrefix(vector<string> &A) {
         i++; 
     }
     return A[0].substr(0, i); 
-
 }
