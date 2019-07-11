@@ -7,20 +7,36 @@
  * };
  */
 ListNode* Solution::mergeTwoLists(ListNode* A, ListNode* B) {
-    if(!A) {
-        return B;
-    }
-    if(!B) {
-        return A;
+    ListNode* ans;
+    
+    // List ans starts with the smaller element of the two lists
+    if(A->val < B->val) {
+        ans = A;
+        A = A->next;
+    } else {
+        ans = B;
+        B = B->next;
     }
     
-    ListNode *res;
-    if(A->val <= B->val) {
-        res = A;
-        res->next = mergeTwoLists(A->next, B);
-    } else {
-        res = B;
-        res->next = mergeTwoLists(B->next, A);
+    // Temp continues ans list forward
+    ListNode* temp = ans;
+    while(A != NULL && B != NULL) {
+        if(A->val < B->val) {
+            temp->next = A;
+            A = A->next;
+        } else {
+            temp->next = B;
+            B = B->next;
+        }
+        temp = temp->next;
     }
-    return res;
+    
+    // A or B has reached end. Fill rest of the list as it is
+    if(A != NULL) {
+        temp->next = A;
+    }
+    if(B != NULL) {
+        temp->next = B;
+    }
+    return ans;
 }
