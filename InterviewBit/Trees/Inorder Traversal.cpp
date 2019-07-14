@@ -9,17 +9,17 @@
  */
 vector<int> Solution::inorderTraversal(TreeNode* A) {
     vector<int> ans;
-    stack<TreeNode*> st;
+    stack<TreeNode*> stack;
     
-    while(!st.empty() || A) {
+    while(!stack.empty() || A) {
         while(A != NULL) {
-            st.push(A);
+            stack.push(A);
             A = A->left;
         }
         
-        A = st.top();
+        A = stack.top();
         ans.push_back(A->val);
-        st.pop();
+        stack.pop();
         A = A->right;
     }
     return ans;
