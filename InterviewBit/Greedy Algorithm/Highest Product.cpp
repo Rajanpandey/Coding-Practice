@@ -23,6 +23,7 @@ int Solution::maxp3(vector<int> &A) {
             minB = A[i];
         }
     }
- 
-    return max(minA*minB*maxA, maxA*maxB*maxC);
+
+    // either 2 min (both -ve makes it +ve) and 1 max or all 3 max is the biggest
+    return max(minA*minB*maxA, maxA*maxB*maxC); ?
 }
