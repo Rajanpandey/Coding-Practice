@@ -1,4 +1,4 @@
-int Solution::minimumdp(vector<vector<int> > &A) {
+int Solution::minimumTotal(vector<vector<int> > &A) {
     int dp[A.size()];
     int l = A.size() - 1;
   
@@ -6,7 +6,7 @@ int Solution::minimumdp(vector<vector<int> > &A) {
         dp[i] = A[l][i];
     }
     for(int i=A.size()-2; i>=0; i--) {
-        for(int j=0; <A[i+1].size()-1; j++) {
+        for(int j=0; j<A[i+1].size()-1; j++) {
             dp[j] = A[i][j] + min(dp[j], dp[j+1]);
         }
     }
