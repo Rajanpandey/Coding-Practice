@@ -13,8 +13,8 @@ string Solution::largestNumber(const vector<int> &A) {
     sort(sol.begin(), sol.end(), checkLarger);
     
     string ans = "";
-    for(int i=0; i<sol.size(); i++){
-        ans += to_string(sol[i]);
+    for(auto i:sol){
+        ans += to_string(i);
     }
     return ans[0] == '0' ? "0" : ans;
 }
