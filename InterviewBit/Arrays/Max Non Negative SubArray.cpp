@@ -1,6 +1,6 @@
 vector<int> Solution::maxset(vector<int> &A) {
-    int x=0, y=0, maxX=0, maxY=0;
-    long long sum=0, maxSum=0;
+    int x = 0, y = 0, maxX = 0, maxY = 0;
+    long long sum = 0, maxSum = 0;
 
     for(int i=0; i<A.size(); i++) {
         if(A[i] >= 0) {
