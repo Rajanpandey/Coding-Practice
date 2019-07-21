@@ -19,7 +19,7 @@ vector<Interval> Solution::merge(vector<Interval> &A) {
     ans.push_back(A[0]);
     
     for(int i=0; i<A.size(); i++) {
-        if(ans.back().end >= A[i].start) {
+        if(A[i].start <= ans.back().end) {
             ans.back().end = max(ans.back().end, A[i].end);
         } else {
             ans.push_back(A[i]);
