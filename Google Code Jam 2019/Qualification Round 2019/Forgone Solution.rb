@@ -1,5 +1,5 @@
 T = gets.chomp
-(0..T.to_i-1).each do |k|
+(1..T.to_i).each do |k|
     N = gets.chomp
     ans = ""
     
@@ -11,5 +11,5 @@ T = gets.chomp
             ans += '0'
         end
     }
-    puts "case ##{k+1}: #{N} #{ans.sub(/^0/, '')}"
+    puts "case ##{k}: #{N} #{ans.sub(/^0/, '')}"
 end
