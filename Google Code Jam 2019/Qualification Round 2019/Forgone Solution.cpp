@@ -17,17 +17,6 @@ main () {
                 ans += '0';
             }
         }
-        cout << "case #" << k << ": " << N << " ";
-        
-        bool trimmed = false;
-        for(int i=0; i<ans.size(); i++) {
-            if(ans[i] == '0' && !trimmed) {
-                continue;
-            } else {
-                trimmed = true;
-                cout << ans[i];
-            }
-        }
-        cout << endl;
+        cout << "case #" << k << ": " << N << " " << stoi(ans) << endl;
     }
 }
