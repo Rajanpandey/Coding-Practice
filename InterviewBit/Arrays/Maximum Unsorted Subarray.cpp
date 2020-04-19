@@ -23,3 +23,25 @@ vector<int> Solution::subUnsort(vector<int> &A) {
         return {left, right};
     }
 }
+
+/* Second solution
+vector<int> Solution::subUnsort(vector<int> &A) {
+    int left = -1, right = -1;
+    vector<int> B = A;
+    sort(B.begin(), B.end());
+    
+    for(int i=0; i<A.size(); i++) {
+        if(A[i] != B[i]) { left = i; break; }
+    }
+
+    for(int i=A.size()-1; i>=0; i--) {
+        if(A[i] != B[i]) { right = i; break; }
+    }
+    
+    if(left == -1) { 
+        return {-1};
+    } else { 
+        return {left, right};
+    }
+}
+*/
