@@ -1,20 +1,16 @@
-bool checkLarger(int a, int b){
-    string aa = to_string(a);
-    string bb = to_string(b);
-    string st = aa + bb;
-    string rev = bb + aa;
-    
-    return st > rev;
+static bool compareNum(string a, string b) {
+    return a + b > b + a;
 }
 
-string Solution::largestNumber(const vector<int> &A) {
-    vector<int> sol = A;
+string Solution::largestNumber(const vector<int> &num) {
+    string ans;
+    vector<string> str;
     
-    sort(sol.begin(), sol.end(), checkLarger);
+    for(auto i : num) { str.push_back(to_string(i)); }
     
-    string ans = "";
-    for(auto i:sol){
-        ans += to_string(i);
-    }
+    sort(str.begin(), str.end(), compareNum);
+    
+    for(auto i : str) { ans += i; }
+
     return ans[0] == '0' ? "0" : ans;
 }
