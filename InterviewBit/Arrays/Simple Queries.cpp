@@ -1,101 +1,90 @@
-#define ll long long int
-const int maxNum = 1e5 + 5;
-const ll mod = 1e9 + 7;
+const long mod = 1e9 + 7;
 
-ll divisorProd[maxNum];
+bool sortDesc(const pair <int, int> &a, const pair <int, int> &b){
+    return (a.second == b.second) ? a.first < b.first : a.second > b.second;
+}
 
-ll power(ll a, ll g) {
-    ll ag = 1; 
-    while(g) {
-        if(g & 1) { ag = (ag%mod * a%mod) % mod; } 
-        a = (a%mod * a%mod) % mod; 
-        g >>= 1;
+int power(long number, unsigned int power) {  
+    long result = 1; 
+    while(power) {
+        if(power & 1) { 
+            result = (result * number) % mod; 
+        } 
+        number = (number*number) % mod; 
+        power /= 2;
     } 
-    return ag;
+    return result;
 }
 
-void pre_compute_product_of_divisors() {
-    divisorProd[0] = 0; divisorProd[1] = 1;
-    if(divisorProd[2] != 0) { return; }
-    for(ll i = 2; i < maxNum; i += 1) {
-        if(divisorProd[i] == 0) {
-            divisorProd[i] = 2;
-            for(ll j = i+i; j < maxNum; j += i) {
-                if(divisorProd[j] == 0) {
-                    divisorProd[j] = 1;
-                }
-                ll temp = j;
-                ll count = 0;
-                while(temp % i == 0) {
-                    count += 1;
-                    temp /= i;
-                }
-                divisorProd[j] *= (count + 1);
-            }
-        }
-    }
-    for(int i = 2; i < maxNum; i += 1) {
-        divisorProd[i] = (power(i, divisorProd[i]/2)%mod * (divisorProd[i]&1 ? (ll)sqrt(i) : 1)%mod)%mod;
-    }
-}
-
-bool compare(pair<int, ll> a, pair<int, ll> g) {
-    return (a.first == g.first) ? a.second < g.second : a.first > g.first;
+int productOfDivisors(int number) {
+    int numberOfDivisors = 0;
+    for(int i=1; i<=sqrt(number); i++) { 
+        if(number%i == 0) { numberOfDivisors += (number/i == i) ? 1 : 2; } 
+    } 
+    (numberOfDivisors & 1) ? number = sqrt(number): numberOfDivisors /= 2;
+    return power(long(number), numberOfDivisors);
 }
 
 vector<int> Solution::solve(vector<int> &A, vector<int> &B) {
-    int n = (int)A.size();
-
-    // create arrays to store length of longest segment in which ith element is greater
-    ll left[n], right[n], leftRight[n];
-    for(int i = 0; i < n; i += 1) {
-        left[i] = right[i] = 1;
-    }
-
-    // find next greater element to the left of the current element
-    for(int i = 1; i < n; i += 1) {
-        int last = i-1;
-        while(last >= 0 and A[i] > A[last]) {
-            left[i] += left[last];
-            last -= left[last];
+    stack<int> s;
+    vector<pair<long long, int>> maxStore (A.size(), make_pair(0, 0));
+    
+    // Calculating leftMax array, i.e wherever the current index is strictly less than the present element
+    for(int i=0; i < A.size(); i++) {
+        while(!s.empty() && A[i] > A[s.top()]) {
+            s.pop();
         }
-    }
-
-    // find next greater element to the right of the current element
-    for(int i = n-2; i >= 0; i -= 1) {
-        int last = i+1;
-        while(last < n and A[i] >= A[last]) {
-            right[i] += right[last];
-            last += right[last];
-        }
-    }
-
-    // The number of subarrays in which current element will be the greater
-    for(int i = 0; i < n; i += 1) {
-        leftRight[i] = left[i] * right[i];
-    }
-
-    // Sort elements in descending order according to there value
-    pair<int, ll> ag[n];
-    pre_compute_product_of_divisors();
-    for(int i = 0; i < n; i += 1) {
-        ag[i] = {divisorProd[A[i]], leftRight[i]};
-    }
-    sort(ag, ag + n, compare);
-
-    // Take Prefix Sum of frequencies of elements
-    long long pre[n];
-    pre[0] = ag[0].second;
-    for(int i = 1; i < n; i += 1) {
-        pre[i] = pre[i-1] + ag[i].second;
+        maxStore[i].first = !s.empty() ? i-s.top()-1 : i;
+        maxStore[i].second = productOfDivisors(A[i]);
+        s.push(i);
     }
     
-    // do Binary search for each query
-    int q = (int)B.size();
-    vector<int> ans(q);
-    for(int i=0; i<q; i+=1) {
-        auto id = lower_bound(pre, pre + n, B[i]) - pre;
-        ans[i] = ag[id].first;
+    // Clear stack for future use
+    // Calculating rightMax array as well as multiplying leftMax + 1 and rightMax + 1 to get the required result 
+    // Logic : Exactly (l + 1) * (r + 1) times the current number be there in the the subarrays, as by keeping the present
+    // index common, there are l+1 options from the left array and r+1 options from the right array (Simple permutation)
+    s = stack<int>();
+    for(int i=A.size()-1; i>=0; i--) {
+        while (!s.empty() && A[i] >= A[s.top()]){
+            s.pop();
+        }
+        int rightMaxIndex = !s.empty() ? s.top()-i-1 : A.size()-i- 1;
+        maxStore[i].first = (maxStore[i].first + 1)*(rightMaxIndex + 1);
+        s.push(i);
     }
-    return ans;
+    
+    // Sorting the array according to frequencis
+    sort(maxStore.begin(), maxStore.end(), sortDesc);
+    
+    // getting the prefix sum which will help for binary search
+    for(int i=1; i<maxStore.size(); i++) {
+        maxStore[i].first += maxStore[i-1].first;
+    }
+    
+    // Binary search
+    vector<int> res(B.size(), maxStore[0].second);
+    for(int i=0; i<B.size(); i++) {
+        int mid = 0, low = 0, high = maxStore.size()-1;
+        while(low <= high) {
+            mid = low + (high - low ) / 2;
+            
+            if(B[i] > maxStore[mid].first) {
+                low = mid + 1;
+                if(B[i] > maxStore[mid].first && B[i] < maxStore[mid + 1].first) {
+                    res[i] = maxStore[mid + 1].second;
+                    break;
+                }
+            } else if (B[i] < maxStore[mid].first) {
+                high = mid - 1;
+                if(B[i] < maxStore[mid].first && B[i] > maxStore[mid - 1].first) {
+                    res[i] = maxStore[mid ].second;
+                    break;
+                }
+            } else {
+                res[i] = maxStore[mid].second;
+                break;
+            }
+        }
+    }
+    return res;
 }
