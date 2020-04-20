@@ -8,11 +8,14 @@ This repository contains solutions of different coding problems from various web
 
 The codes are mostly written in C++. Some are in Ruby and Python also.
 
-## Profile
+## My Profiles
 
 [InterviewBit Profile](https://www.interviewbit.com/profile/rajan-pandey)
+
 [HackerRank Profile](https://www.hackerrank.com/RajanPandey)
+
 [LeetCode Profile](https://leetcode.com/rkpandey/)
+
 [CodeChef Profile](https://www.codechef.com/users/rkpandey)
 
 ## How To Contribute
