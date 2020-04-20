@@ -10,7 +10,6 @@ The codes are mostly written in C++. Some are in Ruby and Python also.
 
 ## Profile
 
-Here is my:
 [InterviewBit Profile](https://www.interviewbit.com/profile/rajan-pandey)
 
 [HackerRank Profile](https://www.hackerrank.com/RajanPandey)
@@ -19,7 +18,7 @@ Here is my:
 
 [CodeChef Profile](https://www.codechef.com/users/rkpandey)
 
-## Contribution
+## How To Contribute
 
 1. Fork the repository 
 2. Do the desired changes (add/delete/modify)
