@@ -8,9 +8,23 @@ int Solution::uniquePaths(int A, int B) {
     return ans;
 }
 
-/* Recursive solution
+/* 
+Recursive solution:
 int Solution::uniquePaths(int A, int B) {
     if(A==1 || B==1) { return 1; }
     return uniquePaths(A-1, B) + uniquePaths(A, B-1);
+}
+
+DP solution:
+int Solution::uniquePaths(int A, int B) {
+    vector<int> dp(A, 1);
+    
+    for(int i=1; i<B; i++) {
+        for(int j=1; j<A; j++) {
+            dp[j] += dp[j-1];
+        }
+    }
+    
+    return dp[A-1];
 }
 */
