@@ -1,6 +1,5 @@
 int Solution::repeatedNumber(const vector<int> &A) {
-    int N = A.size();
-    int count1 = 0, count2 = 0, first = 0, second = 0;
+    int N = A.size(), count1 = 0, count2 = 0, first = 0, second = 0;
 
     if(N/3 == 0) { return A[0]; }
 
@@ -27,8 +26,7 @@ int Solution::repeatedNumber(const vector<int> &A) {
         }
     }
 
-    count1 = 0;
-    count2 = 0;
+    count1 = 0, count2 = 0;
     for(int i=0; i<N; i++) {
         if(A[i] == first) { count1++; }
         if(A[i] == second) { count2++; }
