@@ -11,11 +11,8 @@ The codes are mostly written in C++. Some are in Ruby and Python also.
 ## Profile
 
 [InterviewBit Profile](https://www.interviewbit.com/profile/rajan-pandey)
-
 [HackerRank Profile](https://www.hackerrank.com/RajanPandey)
-
 [LeetCode Profile](https://leetcode.com/rkpandey/)
-
 [CodeChef Profile](https://www.codechef.com/users/rkpandey)
 
 ## How To Contribute
