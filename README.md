@@ -2,7 +2,7 @@
 
 ## About
 
-This repository contains solutions for the problems from different coding platforms created with the intent to help someone with their coding practice or interview preparation.
+This repository contains solutions of different coding problems from various websites and books, created with the intent to help someone with their coding practice or interview preparation.
 
 ## Languages
 
