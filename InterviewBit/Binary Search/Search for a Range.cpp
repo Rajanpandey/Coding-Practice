@@ -20,11 +20,5 @@ int binary_search(const vector<int> &arr, int element, bool searchFirst) {
 } 
 
 vector<int> Solution::searchRange(const vector<int> &A, int B) {
-    vector<int> ans;
-    
-    ans.push_back(binary_search(A, B, true));
-    ans.push_back(binary_search(A, B, false));
-    
-    return ans;
-
+    return {binary_search(A, B, true), binary_search(A, B, false)};
 }
