@@ -8,7 +8,7 @@ This repository contains solutions of different coding problems from various web
 ## Contents
 
 | Folder Name | Number of Codes |
-|    :---:    |      :---:      |
+|    :---     |      :---:      |
 | 30-Day LeetCoding Challenge | 19 codes |
 | Code Gladiators 2020 | 4 codes |
 | Cracking The Coding Interview | 11 codes |
