@@ -8,14 +8,23 @@ This repository contains solutions of different coding problems from various web
 ## Contents
 
 30-Day LeetCoding Challenge => 19 codes
+
 Code Gladiators 2020 => 4 codes
+
 Cracking The Coding Interview => 11 codes
+
 Google Code Jam 2019 => 4 codes
+
 Hack the Interview - Global => 6 codes
+
 InterviewBit => 145 codes
+
 LeetCode => 33 codes
+
 Searching => 2 codes
+
 Sorting => 5 codes
+
 
 ## Languages
 
