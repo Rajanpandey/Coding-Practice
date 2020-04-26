@@ -20,7 +20,7 @@ This repository contains solutions of different coding problems from various web
 | Folder Name | Number of Codes |
 |    :---     |      :---:      |
 "
-folder_file_count.each { |folder_name, file_count| readme_body += "| #{folder_name} | #{file_count} codes |\n" }
+folder_file_count.each { |folder_name, file_count| readme_body += "| #{folder_name} | #{file_count} |\n" }
 readme_body +=
 "
 ## Languages
