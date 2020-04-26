@@ -17,8 +17,10 @@ This repository contains solutions of different coding problems from various web
 
 ## Contents
 
+| Folder Name | Number of Codes |
+|    :---:    |      :---:      |
 "
-folder_file_count.each { |folder_name, file_count| readme_body += "#{folder_name} => #{file_count} codes\n\n" }
+folder_file_count.each { |folder_name, file_count| readme_body += "| #{folder_name} | #{file_count} codes |\n" }
 readme_body +=
 "
 ## Languages
