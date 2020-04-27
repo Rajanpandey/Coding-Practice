@@ -25,7 +25,7 @@ readme_body +=
 "
 ## Languages
 
-The codes are mostly written in C++. Some are in Ruby and Python also.
+The codes are mostly written in C++, and some are written in Ruby and Python. Regex problems are solved in Perl and MySQL queries are in SQL.
 
 ## My Profiles
 
@@ -36,6 +36,8 @@ The codes are mostly written in C++. Some are in Ruby and Python also.
 [LeetCode Profile](https://leetcode.com/rkpandey/)
 
 [CodeChef Profile](https://www.codechef.com/users/rkpandey)
+
+[TechGig Profile](https://techgig.com/rajanpandey6)
 
 ## How To Contribute
 

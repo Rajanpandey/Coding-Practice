@@ -11,6 +11,7 @@ This repository contains solutions of different coding problems from various web
 |    :---     |      :---:      |
 | 30-Day LeetCoding Challenge | 19 |
 | Code Gladiators 2020 | 4 |
+| CodeChef | 17 |
 | Cracking The Coding Interview | 11 |
 | Google Code Jam 2019 | 4 |
 | Hack the Interview - Global | 6 |
@@ -23,7 +24,7 @@ This repository contains solutions of different coding problems from various web
 
 ## Languages
 
-The codes are mostly written in C++. Some are in Ruby and Python also.
+The codes are mostly written in C++, and some are written in Ruby and Python. Regex problems are solved in Perl and MySQL queries are in SQL.
 
 ## My Profiles
 
@@ -34,6 +35,8 @@ The codes are mostly written in C++. Some are in Ruby and Python also.
 [LeetCode Profile](https://leetcode.com/rkpandey/)
 
 [CodeChef Profile](https://www.codechef.com/users/rkpandey)
+
+[TechGig Profile](https://techgig.com/rajanpandey6)
 
 ## How To Contribute
 
