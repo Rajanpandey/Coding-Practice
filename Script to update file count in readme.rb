@@ -47,4 +47,3 @@ The codes are mostly written in C++. Some are in Ruby and Python also.
 
 # Write the README.md body in README.md file
 File.open("#{__dir__}/README.md", 'w') { |file| file.write(readme_body) }
-

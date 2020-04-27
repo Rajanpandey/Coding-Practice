@@ -18,6 +18,7 @@ This repository contains solutions of different coding problems from various web
 | LeetCode | 33 |
 | Searching | 2 |
 | Sorting | 5 |
+| TechGig | 2 |
 
 ## Languages
 
