@@ -39,6 +39,8 @@ The codes are mostly written in C++, and some are written in Ruby and Python. Re
 
 [TechGig Profile](https://techgig.com/rajanpandey6)
 
+[GeeksForGeeks Profile](https://auth.geeksforgeeks.org/user/rajanpandey2/practice/)
+
 ## How To Contribute
 
 1. Fork the repository 
