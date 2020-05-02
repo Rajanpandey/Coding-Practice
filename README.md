@@ -9,7 +9,6 @@ This repository contains solutions of different coding problems from various web
 
 | Folder Name | Number of Codes |
 |    :---     |      :---:      |
-| 30-Day LeetCoding Challenge | 19 |
 | Code Gladiators 2020 | 4 |
 | CodeChef | 17 |
 | Cracking The Coding Interview | 11 |
@@ -18,7 +17,7 @@ This repository contains solutions of different coding problems from various web
 | Hack the Interview - Global | 6 |
 | HackerRank | 131 |
 | InterviewBit | 145 |
-| LeetCode | 33 |
+| LeetCode | 39 |
 | Searching | 2 |
 | Sorting | 5 |
 | TechGig | 2 |
