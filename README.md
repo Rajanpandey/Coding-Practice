@@ -14,6 +14,7 @@ This repository contains solutions of different coding problems from various web
 | Cracking The Coding Interview | 11 |
 | GeeksForGeeks | 4 |
 | Google Code Jam 2019 | 4 |
+| Google Hash Code 2020 | 2 |
 | Hack the Interview - Global | 6 |
 | HackerRank | 131 |
 | InterviewBit | 145 |
