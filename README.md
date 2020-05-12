@@ -11,12 +11,13 @@ This repository contains solutions of different coding problems from various web
 |    :---     |      :---:      |
 | Code Gladiators 2020 | 4 |
 | CodeChef | 17 |
+| CodeSignal | 8 |
 | Cracking The Coding Interview | 11 |
 | GeeksForGeeks | 4 |
 | Google Code Jam 2019 | 4 |
 | Google Hash Code 2020 | 2 |
 | Hack the Interview - Global | 6 |
-| HackerRank | 131 |
+| HackerRank | 132 |
 | InterviewBit | 145 |
 | LeetCode | 45 |
 | Searching | 2 |
@@ -41,9 +42,11 @@ The codes are mostly written in C++, and some are written in Ruby and Python. Re
 
 [GeeksForGeeks Profile](https://auth.geeksforgeeks.org/user/rajanpandey2/practice/)
 
+[CodeSignal Profile](https://app.codesignal.com/profile/rajan_p3)
+
 ## How To Contribute
 
-1. Fork the repository 
+1. Fork the repository
 2. Do the desired changes (add/delete/modify)
 3. Write the link of the problem as the commit message
 4. Make a pull request
