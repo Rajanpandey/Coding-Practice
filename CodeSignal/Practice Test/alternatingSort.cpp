@@ -1,3 +1,4 @@
+// Score: 255/300
 bool alternatingSort(std::vector<int> a) {
     int n = a.size(), k = 0, l = n - 1;
     vector<int> b (n);
@@ -16,3 +17,15 @@ bool alternatingSort(std::vector<int> a) {
 
     return b == a;
 }
+
+// 300/300 Python Sol:
+// def alternatingSort(a):
+//     c, l = 0, a[0]
+//
+//     while c != (len(a) - 1) // 2:
+//         c = -c if c < 0 else -c - 1
+//         if a[c] <= l:
+//             return False
+//         l = a[c]
+//
+//     return True
