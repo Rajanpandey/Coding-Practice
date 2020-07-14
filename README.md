@@ -13,13 +13,13 @@ This repository contains solutions of different coding problems from various web
 | CodeChef | 17 |
 | CodeSignal | 73 |
 | Cracking The Coding Interview | 11 |
-| GeeksForGeeks | 4 |
+| GeeksForGeeks | 7 |
 | Google Code Jam 2019 | 4 |
 | Google Hash Code 2020 | 2 |
 | Hack the Interview - Global | 6 |
 | HackerRank | 132 |
-| InterviewBit | 145 |
-| LeetCode | 45 |
+| InterviewBit | 147 |
+| LeetCode | 49 |
 | Searching | 2 |
 | Sorting | 5 |
 | TechGig | 2 |

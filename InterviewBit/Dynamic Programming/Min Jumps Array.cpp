@@ -4,8 +4,8 @@ int Solution::jump(vector<int> &A) {
     }
     int maxReachPos = A[0];
     int curMaxReachPos = A[0];
-    int jumps = 1;
-    
+    ist jumps = 1;
+
     for(int i=1; i<=maxReachPos; i++) {
         if(i == A.size()-1) {
             return jumps;

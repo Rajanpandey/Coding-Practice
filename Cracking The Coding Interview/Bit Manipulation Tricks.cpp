@@ -45,12 +45,12 @@ int multiplyByTwo(int num) {
 
 int coutSetBits(int num) {
 	// Brian Kernighan's Algorithmn
-	int count = 0; 
-    while (num) { 
-        num &= (num-1); 
-        count++; 
-    } 
-    return count; 
+	int count = 0;
+    while (num) {
+        num &= (num-1);
+        count++;
+    }
+    return count;
 }
 
 string evenOrOdd(int num) {
@@ -63,21 +63,21 @@ string evenOrOdd(int num) {
 }
 
 int findLog2(int num) {
-	int res = 0; 
+	int res = 0;
     while (num >>= 1) {
-        res++; 
+        res++;
     }
-    return res; 
+    return res;
 }
 
 int isPowerOf2(int num) {
-	return (num && !(num & num-1)); 
+	return (num && !(num & num-1));
 }
 
 int swap(int &x, int &y) {
-    x = x ^ y; // x now becomes 15 (1111) 
-    y = x ^ y; // y becomes 10 (1010) 
-    x = x ^ y; // x becomes 5 (0101) 
+    x = x ^ y; // x now becomes 15 (1111)
+    y = x ^ y; // y becomes 10 (1010)
+    x = x ^ y; // x becomes 5 (0101)
 
     // x = x ^ y ^ (y = x)
 }
@@ -110,7 +110,7 @@ int main() {
 
 	cout << findLog2(num) << endl;
 	cout << isPowerOf2(num) << endl;
-	
+
 	cout << "x: " << x << ", y: " << y << endl;
 	swap(x, y);
 	cout << "x: " << x << ", y: " << y << endl;
