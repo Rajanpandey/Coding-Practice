@@ -16,8 +16,10 @@ This repository contains solutions of different coding problems from various web
 | GeeksForGeeks | 7 |
 | Google Code Jam 2019 | 4 |
 | Google Hash Code 2020 | 2 |
+| Google Hash Code 2021 | 14 |
 | Hack the Interview - Global | 6 |
 | HackerRank | 132 |
+| HackerRank HackFest 2020 | 4 |
 | InterviewBit | 147 |
 | LeetCode | 49 |
 | Searching | 2 |
@@ -27,6 +29,22 @@ This repository contains solutions of different coding problems from various web
 ## Languages
 
 The codes are mostly written in C++, and some are written in Ruby and Python. Regex problems are solved in Perl and MySQL queries are in SQL.
+
+## My Profiles
+
+[InterviewBit Profile](https://www.interviewbit.com/profile/rajan-pandey)
+
+[HackerRank Profile](https://www.hackerrank.com/RajanPandey)
+
+[LeetCode Profile](https://leetcode.com/rkpandey/)
+
+[CodeChef Profile](https://www.codechef.com/users/rkpandey)
+
+[TechGig Profile](https://techgig.com/rajanpandey6)
+
+[GeeksForGeeks Profile](https://auth.geeksforgeeks.org/user/rajanpandey2/practice/)
+
+[CodeSignal Profile](https://app.codesignal.com/profile/rajan_p3)
 
 ## How To Contribute
 
