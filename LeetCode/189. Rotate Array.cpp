@@ -19,11 +19,11 @@ public:
 O(1) Space Complexity solution:
 
     void rotate(vector<int>& nums, int k) {
-        int N = nums.size();
+        k %= nums.size();
 
-        reverse(nums, nums + N - k);
-        reverse(nums + N - k, nums + N);
-        reverse(nums, nums + N);
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin() + k, nums.end());
     }
 
 */
