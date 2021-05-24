@@ -14,3 +14,6 @@ public:
         return false;
     }
 };
+
+// Shorter One-Liner:
+// return set<int>(nums.begin(), nums.end()).size() < nums.size();
