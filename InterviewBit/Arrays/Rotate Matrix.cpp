@@ -8,9 +8,7 @@ void transpose(vector<vector<int>> &A) {
 
 void reverseRows(vector<vector<int>> &A) {
     for(int i=0; i<A.size(); i++) {
-        for(int j=0, k=A.size()-1; j<k; j++, k--) {
-            swap(A[i][j], A[i][k]);
-        }
+        reverse(A[i].begin(), A[i].end());
     }
 }
 
