@@ -1,11 +1,14 @@
-int Solution::maxProfit(const vector<int> &A) {
-    int ans = 0;
-    
-    for(int i=1; i<A.size(); i++) {
-        int diff = A[i]-A[i-1];
-        if(diff > 0) {
-            ans += diff;
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int totalProfit = 0;
+
+        for (int i = 0; i < prices.size() - 1; i++) {
+            if (prices[i] < prices[i + 1]) {
+                totalProfit += prices[i + 1] - prices[i];
+            }
         }
+
+        return totalProfit;
     }
-    return ans;
-}
+};
