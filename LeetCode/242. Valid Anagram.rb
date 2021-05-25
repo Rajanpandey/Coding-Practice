@@ -1,5 +1,4 @@
-# @param {String} s
-# @param {String} t
+# @param {String} s, t
 # @return {Boolean}
 def is_anagram(s, t)
     arr1 = Array.new(26, 0)
