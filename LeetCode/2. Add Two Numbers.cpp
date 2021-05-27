@@ -15,6 +15,34 @@ public:
         ListNode* curr = dummy;
         int carry = 0;
 
+        while(l1 || l2) {
+            int num1 = l1 ? l1->val : 0;
+            int num2 = l2 ? l2->val : 0;
+
+            int sum = (num1 + num2 + carry) % 10;
+            carry = (num1 + num2 + carry) / 10;
+            curr->next = new ListNode(sum);
+
+            curr = curr->next;
+            if (l1) l1 = l1->next;
+            if (l2) l2 = l2->next;
+        }
+
+        if (carry) {
+            curr->next = new ListNode(carry);
+        }
+
+        return dummy->next;
+    }
+};
+
+/* Longer version:
+
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* dummy = new ListNode(0);
+        ListNode* curr = dummy;
+        int carry = 0;
+
         while(l1 && l2) {
             int sum = (l1->val + l2->val + carry) % 10;
             carry = (l1->val + l2->val + carry) / 10;
@@ -53,4 +81,5 @@ public:
 
         return dummy->next;
     }
-};
+
+/*
