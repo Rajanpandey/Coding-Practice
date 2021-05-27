@@ -21,7 +21,7 @@ This repository contains solutions of different coding problems from various web
 | HackerRank | 132 |
 | HackerRank HackFest 2020 | 4 |
 | InterviewBit | 147 |
-| LeetCode | 61 |
+| LeetCode | 75 |
 | Searching | 2 |
 | Sorting | 5 |
 | TechGig | 2 |
