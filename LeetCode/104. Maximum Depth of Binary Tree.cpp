@@ -21,6 +21,6 @@ public:
     }
     
     int maxDepth(TreeNode* root) {
-        return depth(root);;
+        return depth(root);
     }
 };
