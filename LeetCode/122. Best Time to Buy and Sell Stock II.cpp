@@ -3,10 +3,8 @@ public:
     int maxProfit(vector<int>& prices) {
         int totalProfit = 0;
 
-        for (int i = 0; i < prices.size() - 1; i++) {
-            if (prices[i] < prices[i + 1]) {
-                totalProfit += prices[i + 1] - prices[i];
-            }
+        for (int i = 1; i < prices.size(); i++) {
+            totalProfit += max(prices[i] - prices[i - 1], 0);
         }
 
         return totalProfit;
