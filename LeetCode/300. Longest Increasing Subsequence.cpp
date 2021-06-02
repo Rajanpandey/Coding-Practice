@@ -1,22 +1,18 @@
-public class Solution {
-    public int LengthOfLIS(int[] nums) {
-        int n = nums.Length;
-        if (n == 0) return 0;
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int> dp (nums.size(), 1);
 
-        int[] dp = new int[n];
-        Array.Fill(dp, 1);
-
-        int ans = 1;
-
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < nums.size(); i++) {
+            int currLongest = 0;
             for (int j = 0; j < i; j++) {
-                if (nums[j] < nums[i]) {
-                    dp[i] = Math.Max(dp[j] + 1, dp[i]);
-                    ans = Math.Max(dp[i], ans);
+                if (nums[i] > nums[j]) {
+                    currLongest = max(currLongest, dp[j]);
                 }
             }
+            dp[i] = currLongest + 1;
         }
 
-        return ans;
+        return *max_element(dp.begin(), dp.end());
     }
-}
+};
