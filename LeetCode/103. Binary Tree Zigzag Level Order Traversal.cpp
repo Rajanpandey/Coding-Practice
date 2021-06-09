@@ -13,6 +13,45 @@ class Solution {
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         if (!root) return {};
+
+        int reverseOrder = false;
+        vector<vector<int> > ans;
+        queue<TreeNode*> myQueue;
+        myQueue.push(root);
+
+        while (!myQueue.empty()) {
+            int qSize = myQueue.size();
+            vector<int> level(qSize);
+
+            for (int i = 0; i < qSize; i++) {
+                TreeNode* node = myQueue.front();
+                myQueue.pop();
+
+                if (reverseOrder) {
+                    level[qSize - 1 - i] = node->val;
+                } else {
+                    level[i] = node->val;
+                }
+
+                if (node->left) myQueue.push(node->left);
+                if (node->right) myQueue.push(node->right);
+            }
+
+            ans.push_back(level);
+            reverseOrder = !reverseOrder;
+        }
+
+        return ans;
+    }
+};
+
+/*
+With using Reverse:
+
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if (!root) return {};
         
         int reverseOrder = true;
         vector<vector<int> > ans;
@@ -42,3 +81,4 @@ public:
         return ans;
     }
 };
+ */
