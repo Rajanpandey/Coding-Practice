@@ -20,6 +20,33 @@ class Solution {
 public:
     Node* connect(Node* root) {
         if (!root) return root;
+        Node* node = root;
+
+        while (node->left) {
+            Node* curr = node;
+            while (curr) {
+                curr->left->next = curr->right;
+
+                if (curr->next) {
+                    curr->right->next = curr->next->left;
+                }
+
+                curr = curr->next;
+            }
+
+            node = node->left;
+        }
+
+        return root;
+    }
+};
+
+/*
+Using some space:
+class Solution {
+public:
+    Node* connect(Node* root) {
+        if (!root) return root;
 
         queue<Node*> myQueue;
         myQueue.push(root);
@@ -47,3 +74,4 @@ public:
         return root;
     }
 };
+/*
