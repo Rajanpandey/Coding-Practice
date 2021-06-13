@@ -1,11 +1,15 @@
 class Solution {
 public:
-    int numJewelsInStones(string J, string S) {
+    int numJewelsInStones(string jewels, string stones) {
         int ans = 0;
-        unordered_set<char> setJ(J.begin(), J.end());
-        for(char ch : S)
-            if(setJ.count(ch)) 
+        unordered_set<char> setJ(jewels.begin(), jewels.end());
+
+        for(char stone : stones) {
+            if(setJ.count(stone)) {
                 ans++;
+            }
+        }
+
         return ans;
     }
 };
