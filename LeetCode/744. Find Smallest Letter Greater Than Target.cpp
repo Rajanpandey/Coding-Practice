@@ -1,12 +1,34 @@
 class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
+        int left = 0, right = letters.size();
+
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+
+            if (letters[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return letters[left % letters.size()];
+    }
+};
+
+/*
+Without Binary Search:
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) {
         for (auto ch : letters) {
             if (ch > target) {
                 return ch;
             }
         }
-        
+
         return letters[0];
     }
 };
+/*
