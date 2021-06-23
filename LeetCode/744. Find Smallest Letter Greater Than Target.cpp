@@ -13,7 +13,8 @@ public:
             }
         }
 
-        return letters[left % letters.size()];
+        return (left == letters.size()) ? letters[0] : letters[left];
+        // return letters[left % letters.size()];
     }
 };
 
