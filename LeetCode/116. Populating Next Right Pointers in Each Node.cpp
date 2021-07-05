@@ -18,6 +18,32 @@ public:
 
 class Solution {
 public:
+    void helper(Node* root) {
+        if (!root) return;
+
+        if (root->left) {
+            root->left->next = root->right;
+        }
+
+        if (root->right && root->next) {
+            root->right->next = root->next->left;
+        }
+
+        connect(root->left);
+        connect(root->right);
+    }
+
+    Node* connect(Node* root) {
+        helper(root);
+        return root;
+    }
+};
+
+
+/*
+Interative solution without usign extra space:
+class Solution {
+public:
     Node* connect(Node* root) {
         if (!root) return root;
         Node* node = root;
@@ -41,8 +67,8 @@ public:
     }
 };
 
-/*
-Using some space:
+
+Interative solution usign extra space:
 class Solution {
 public:
     Node* connect(Node* root) {
