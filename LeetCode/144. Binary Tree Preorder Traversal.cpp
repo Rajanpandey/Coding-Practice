@@ -31,7 +31,7 @@ public:
     }
 };
 
-/* Preorder Traversal
+/* Recursive Solution
 
 class Solution {
 public:
