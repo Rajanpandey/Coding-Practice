@@ -10,7 +10,7 @@
 // Recursive Solution:
 class Solution {
 public:
-    void DFS(TreeNode* node, int k, map<TreeNode*, TreeNode*> childToParentMap, map<TreeNode*, bool>& seen, vector<int>& ans) {
+    void BFS(TreeNode* node, int k, map<TreeNode*, TreeNode*> childToParentMap, map<TreeNode*, bool>& seen, vector<int>& ans) {
         if (seen[node]) return;
 
         if (k == 0) {
@@ -21,15 +21,15 @@ public:
         seen[node] = true;
 
         if (node->left) {
-            DFS(node->left, k - 1, childToParentMap, seen, ans);
+            BFS(node->left, k - 1, childToParentMap, seen, ans);
         }
 
         if (node->right) {
-            DFS(node->right, k - 1, childToParentMap, seen, ans);
+            BFS(node->right, k - 1, childToParentMap, seen, ans);
         }
 
         if (childToParentMap[node]) {
-            DFS(childToParentMap[node], k - 1, childToParentMap, seen, ans);
+            BFS(childToParentMap[node], k - 1, childToParentMap, seen, ans);
         }
     }
 
@@ -52,7 +52,7 @@ public:
 
         map<TreeNode*, bool> seen;
 
-        DFS(target, k, childToParentMap, seen, ans);
+        BFS(target, k, childToParentMap, seen, ans);
 
         return ans;
     }
