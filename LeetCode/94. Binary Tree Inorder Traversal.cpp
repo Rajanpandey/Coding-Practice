@@ -31,7 +31,7 @@ public:
     }
 };
 
-/*Recursive solution:
+/* Recursive solution:
 
 class Solution {
 public:
