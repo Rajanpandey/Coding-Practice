@@ -51,5 +51,5 @@ The codes are mostly written in C++, and some are written in Ruby and Python. Re
 4. Make a pull request
 5. Mention about the modifications clear"
 
-# Write the README.md body in README.md file
+# Write the README.md body in the README.md file
 File.open("#{__dir__}/README.md", 'w') { |file| file.write(readme_body) }
