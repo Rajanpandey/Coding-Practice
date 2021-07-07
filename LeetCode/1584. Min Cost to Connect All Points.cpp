@@ -1,3 +1,58 @@
+// Kruskal's method with UnionFind
+class UnionFind {
+    public:
+    vector<int> parent;
+
+    UnionFind(int n) {
+        parent.resize(n);
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+        }
+    }
+
+    void unite(int a, int b) {
+        parent[find(a)] = parent[find(b)];
+    }
+
+    int find(int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
+    }
+};
+
+class Solution {
+public:
+    int minCostConnectPoints(vector<vector<int>>& points) {
+        int n = points.size(), ans = 0;
+        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                pq.push( {abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1]), i, j} );
+            }
+        }
+
+        int count = 0;
+        UnionFind uf = UnionFind(n);
+        while (count < n - 1) {
+            vector<int> edge = pq.top();
+            pq.pop();
+
+            if (uf.find(edge[1]) != uf.find(edge[2])) {
+                ans += edge[0];
+                count++;
+                uf.unite(edge[1], edge[2]);
+            }
+        }
+
+        return ans;
+    }
+};
+
+/*
+Prim's Algo:
 class Solution {
 public:
     int minCostConnectPoints(vector<vector<int>>& points) {
@@ -24,61 +79,4 @@ public:
     }
 };
 
-/*
-Kruskal's method with UnionFind
-class UnionFind {
-    public:
-    vector<int> parent;
-
-    UnionFind(int n) {
-        parent.resize(n);
-        for (int i = 0; i < n; i++) {
-            parent[i] = i;
-        }
-    }
-
-    void unite(int a, int b) {
-        parent[find(a)] = parent[find(b)];
-    }
-
-    int find(int x) {
-        if (parent[x] != x) {
-            parent[x] = find(parent[x]);
-        }
-        return parent[x];
-    }
-};
-
-class Solution {
-public:
-    int findDist (vector<vector<int>>& points, int i, int j) {
-        return abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1]);
-    }
-
-    int minCostConnectPoints(vector<vector<int>>& points) {
-        int n = points.size(), ans = 0;
-        priority_queue <vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
-
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                pq.push( {findDist(points, i, j), i, j} );
-            }
-        }
-
-        int count = 0;
-        UnionFind uf = UnionFind(n);
-        while (count < n - 1) {
-            vector<int> edge = pq.top();
-            pq.pop();
-
-            if (uf.find(edge[1]) != uf.find(edge[2])) {
-                ans += edge[0];
-                count++;
-                uf.unite(edge[1], edge[2]);
-            }
-        }
-
-        return ans;
-    }
-};
 */
