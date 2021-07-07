@@ -20,13 +20,15 @@ public:
             int ele = q.front();
             q.pop();
             numCourses--;
+
             for (auto child : adjList[ele]) {
                 indegree[child]--;
-                if(indegree[child] == 0) {
+                if (indegree[child] == 0) {
                     q.push(child);
                 }
             }
         }
+
         return numCourses == 0;
     }
 };
