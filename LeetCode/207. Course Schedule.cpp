@@ -1,9 +1,9 @@
 class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<int> adjList[numCourses];
+        vector<vector<int>> adjList(numCourses);
         vector<int> indegree(numCourses, 0);
-        
+
         for (auto p : prerequisites) {
             adjList[p[1]].push_back(p[0]);
             indegree[p[0]]++;
@@ -17,14 +17,14 @@ public:
         }
 
         while (!q.empty()) {
-            int ele = q.front();
+            int preReq = q.front();
             q.pop();
             numCourses--;
 
-            for (auto child : adjList[ele]) {
-                indegree[child]--;
-                if (indegree[child] == 0) {
-                    q.push(child);
+            for (auto course : adjList[preReq]) {
+                indegree[course]--;
+                if (indegree[course] == 0) {
+                    q.push(course);
                 }
             }
         }
