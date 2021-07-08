@@ -8,7 +8,7 @@ public:
         sort(words.begin(), words.end(), compare);
         map<string, int> dp;
         
-        int ans;
+        int ans = INT_MIN;
         for (auto word : words) {
             for (int i = 0; i < word.length(); i++) {
                 string pre = word.substr(0, i) + word.substr(i + 1);
