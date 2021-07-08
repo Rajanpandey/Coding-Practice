@@ -5,14 +5,19 @@ public:
     }
     
     int longestStrChain(vector<string>& words) {
+        int ans = INT_MIN;
         sort(words.begin(), words.end(), compare);
         map<string, int> dp;
-        
-        int ans = INT_MIN;
+
         for (auto word : words) {
+            dp[word] = 1;
+
             for (int i = 0; i < word.length(); i++) {
-                string pre = word.substr(0, i) + word.substr(i + 1);
-                dp[word] = max(dp[word], (dp.find(word) != dp.end()) ? dp[pre] + 1 : 1);
+                string prev = word.substr(0, i) + word.substr(i + 1);
+
+                if (dp[prev]) {
+                    dp[word] = max(dp[word], dp[prev] + 1);
+                }
             }
             ans = max(ans, dp[word]);
         }
