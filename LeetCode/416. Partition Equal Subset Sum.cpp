@@ -12,7 +12,9 @@ public:
         for (int num : nums) {
             for (int i = sumHalf; i > 0; i--) {
                 if (i >= num) {
-                    dp[i] = dp[i] || dp[i-num];
+                    if (dp[i] == true || dp[i - num] == true) {
+                        dp[i] = true;
+                    }
                 }
             }
         
