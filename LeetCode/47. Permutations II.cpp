@@ -6,15 +6,15 @@ public:
             return;
         }
         
-        for (auto iter : visited) {
-            if (iter.second != 0) {
-                arr.push_back(iter.first);
-                visited[iter.first]--;
-                
+        for (auto [num, count] : visited) {
+            if (count != 0) {
+                arr.push_back(num);
+                visited[num]--;
+
                 backtracking(nums, ans, arr, visited);
-                
+
                 arr.pop_back();
-                visited[iter.first]++;
+                visited[num]++;
             }
         }
     }
