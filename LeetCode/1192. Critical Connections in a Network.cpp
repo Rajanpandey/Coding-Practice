@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // Tarjan's Algorithm to find Strongly Connected Components
     void DFS(int curr, int prev, vector<vector<int>>& ans, map<int, vector<int>>& adjList, vector<int>& disc, vector<int>& low, int time) {
         disc[curr] = low[curr] = time++;
 
