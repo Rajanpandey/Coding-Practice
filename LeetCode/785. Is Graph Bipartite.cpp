@@ -62,3 +62,48 @@ public:
 };
 
 /*
+
+
+/* Union-Find Method:
+
+class UnionFind {
+    public:
+    vector<int> parent;
+
+    UnionFind(int n) {
+        parent.resize(n);
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+        }
+    }
+
+    void unite(int a, int b) {
+        parent[find(a)] = parent[find(b)];
+    }
+
+    int find(int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
+    }
+};
+
+class Solution {
+public:
+    bool isBipartite(vector<vector<int>>& graph) {
+        UnionFind uf = UnionFind(graph.size());
+
+        for (int i = 0; i < graph.size(); i++) {
+            for (int j = 0; j < graph[i].size(); j++) {
+                if (uf.find(i) == uf.find(graph[i][j])) {
+                    return false;
+                }
+                uf.unite(graph[i][0], graph[i][j]);
+            }
+        }
+
+        return true;
+    }
+};
+/*
