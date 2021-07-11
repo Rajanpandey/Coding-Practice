@@ -17,22 +17,20 @@ public:
     }
     
     void put(int key, int value) {
-        if(_cache.size() == _capacity && _cache.count(key) == 0) 
-            evict();
+        if(_cache.size() == _capacity && _cache.count(key) == 0) {
+            mp.erase(lru.back());
+            _cache.erase(lru.back());
+            lru.pop_back();
+        }
         updateLRU(key);
         _cache[key] = value;
     }
-    
+
     void updateLRU(int key) {
-        if(_cache.count(key)) 
+        if(_cache.count(key)) {
             lru.erase(mp[key]);
+        }
         lru.push_front(key);
         mp[key] = lru.begin();
-    }
-    
-    void evict() {
-        mp.erase(lru.back());
-        _cache.erase(lru.back());
-        lru.pop_back();
     }
 };
