@@ -30,6 +30,7 @@ public:
     }
 };
 
+
 /* Graph Coloring DFS Algorithm:
 
 class Solution {
@@ -64,7 +65,8 @@ public:
 /*
 
 
-/* Union-Find Method:
+/*
+Union-Find Method:
 
 class UnionFind {
     public:
