@@ -1,36 +1,35 @@
 class LRUCache {
     int _capacity;
-    list<int> lru;                              // First is MRU, Last is LRU
-    unordered_map<int, list<int>::iterator> mp; // key -> iterator
-    unordered_map<int, int> _cache;         
+    list<int> lru;                               // First is MRU, Last is LRU
+    unordered_map<int, list<int>::iterator> map; // key -> iterator
+    unordered_map<int, int> cache;
     
 public:
-    
     LRUCache(int capacity) {
         _capacity = capacity;
     }
     
     int get(int key) {
-        if(_cache.count(key) == 0) return -1;
+        if(cache.count(key) == 0) return -1;
         updateLRU(key);
-        return _cache[key];
+        return cache[key];
     }
     
     void put(int key, int value) {
-        if(_cache.size() == _capacity && _cache.count(key) == 0) {
-            mp.erase(lru.back());
-            _cache.erase(lru.back());
+        if(cache.size() == _capacity && cache.count(key) == 0) {
+            map.erase(lru.back());
+            cache.erase(lru.back());
             lru.pop_back();
         }
         updateLRU(key);
-        _cache[key] = value;
+        cache[key] = value;
     }
 
     void updateLRU(int key) {
-        if(_cache.count(key)) {
-            lru.erase(mp[key]);
+        if(cache.count(key)) {
+            lru.erase(map[key]);
         }
         lru.push_front(key);
-        mp[key] = lru.begin();
+        map[key] = lru.begin();
     }
 };
