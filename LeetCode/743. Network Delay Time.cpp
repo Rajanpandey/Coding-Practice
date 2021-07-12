@@ -18,7 +18,6 @@ public:
             pq.pop();
 
             int source = p.second;
-
             for (auto to : adjList[source]) {
                 int destination = to.first, time = to.second;
 
