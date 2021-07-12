@@ -29,8 +29,8 @@ public:
             root->right->next = root->next->left;
         }
 
-        connect(root->left);
-        connect(root->right);
+        helper(root->left);
+        helper(root->right);
     }
 
     Node* connect(Node* root) {
