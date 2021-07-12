@@ -1,29 +1,36 @@
-// Graph Coloring Algorithm
 class Solution {
 public:
-    bool DFS(vector<vector<int>> & graph, vector<int> & color, int i) {
-        if (color[i]) {
-            return color[i] == 1;
+    unordered_set<int> visitedNodes;
+    unordered_set<int> cycleNodes;
+    unordered_set<int> safeNodes;
+
+    bool DFS(vector<vector<int>>& graph, int i) {
+        if (safeNodes.find(i) != safeNodes.end()) return true;
+        if (cycleNodes.find(i) != cycleNodes.end()) return false;
+
+        if (visitedNodes.find(i) != visitedNodes.end()) {
+            cycleNodes.insert(i);
+            return false;
         }
 
-        color[i] = -1;
+        visitedNodes.insert(i);
 
-        for(int v : graph[i]) {
-            if(!DFS(graph, color, v)) {
+        for (int node : graph[i]) {
+            if (!DFS(graph, node)) {
+                cycleNodes.insert(i);
                 return false;
             }
         }
 
-        color[i] = 1;
+        safeNodes.insert(i);
         return true;
     }
 
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         vector<int> ans;
-        vector<int> color(graph.size());
 
-        for (int i = 0; i < graph.size(); ++i) {
-            if (DFS(graph, color, i)) {
+        for (int i = 0; i < graph.size(); i++) {
+            if (DFS(graph, i)) {
                 ans.push_back(i);
             }
         }
@@ -32,46 +39,38 @@ public:
     }
 };
 
-/* DFS Sol:
+/* Graph Coloring Algorithm:
 
 class Solution {
 public:
-    unordered_set<int> visitedNodes;
-    unordered_set<int> cycleNodes;
-    unordered_set<int> safeNodes;
-    
-    bool DFS(vector<vector<int>>& graph, int i) {
-        if (safeNodes.find(i) != safeNodes.end()) return true;
-        if (cycleNodes.find(i) != cycleNodes.end()) return false;
-        
-        if (visitedNodes.find(i) != visitedNodes.end()) {
-            cycleNodes.insert(i);
-            return false;
+    bool DFS(vector<vector<int>> & graph, vector<int> & colors, int i) {
+        if (colors[i] != 0) {
+            return colors[i] == 1;
         }
-        
-        visitedNodes.insert(i);
-        
+
+        colors[i] = -1;
+
         for (int node : graph[i]) {
-            if (!DFS(graph, node)) {
-                cycleNodes.insert(i);
+            if (!DFS(graph, colors, node)) {
                 return false;
             }
         }
-        
-        safeNodes.insert(i);
+
+        colors[i] = 1;
         return true;
     }
-    
+
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         vector<int> ans;
-        
+        vector<int> colors(graph.size());   // 0 -> No color, 1 -> Blue, -1 -> Red
+
         for (int i = 0; i < graph.size(); i++) {
-            if (DFS(graph, i)) {
+            if (DFS(graph, colors, i)) {
                 ans.push_back(i);
             }
         }
-        
-        return ans;        
+
+        return ans;
     }
 };
 
