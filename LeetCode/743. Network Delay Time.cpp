@@ -1,4 +1,4 @@
-// Djikstra's Algorithm to find Single Source Shortest Path
+// Dijkstra's Algorithm to find Single Source Shortest Path
 class Solution {
 public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
