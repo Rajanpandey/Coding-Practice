@@ -4,7 +4,7 @@ public:
         int n = s1.size(), m = s2.size();
         vector<vector<int>> dp(n + 1 , vector<int> (m + 1));
 
-        for (int i = 1 ; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             dp[i][0] = dp[i - 1][0] + s1[i - 1];
         }
 
