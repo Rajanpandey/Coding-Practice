@@ -50,8 +50,8 @@ public:
 
         colors[i] = -1;
 
-        for (int node : graph[i]) {
-            if (!DFS(graph, colors, node)) {
+        for (int neighbor : graph[i]) {
+            if (!DFS(graph, colors, neighbor)) {
                 return false;
             }
         }
@@ -62,7 +62,7 @@ public:
 
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         vector<int> ans;
-        vector<int> colors(graph.size());   // 0 -> No color, 1 -> Blue, -1 -> Red
+        vector<int> colors(graph.size());   // 0 -> No color, 1 -> Safe, -1 -> Unsafe
 
         for (int i = 0; i < graph.size(); i++) {
             if (DFS(graph, colors, i)) {
