@@ -7,60 +7,33 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Triplet {
-public:
-    int max, above, below;
+ int maxDepth(TreeNode* node) {
+     if (!node) return 0;
+     return 1 + max(maxDepth(node->left), maxDepth(node->right));
+ }
 
-    Triplet(int max, int above, int below) {
-        this->max = max;
-        this->above = above;
-        this->below = below;
-    }
-};
+int traverse(TreeNode* node, int target, int &ans) {
+    if (!node) return 0;
 
-Triplet timeToBurnTreeHelper(TreeNode* root, int start) {
-    if (!root) {
-        return Triplet(-1, -1, 0);
-    }
+    if (node->val == target) return 1;
 
-    Triplet left = timeToBurnTreeHelper(root->left, start);
-    Triplet right = timeToBurnTreeHelper(root->right, start);
-
-    Triplet ans = Triplet(-1, -1, 0);
-
-    // Node is the starting node
-    if (root->val == start) {
-        int below = max(left.below, right.below);
-        ans.max = below;
-        ans.above = 0;
-        ans.below = below;
-    }
-    
-    // Starting Node is in left subtree
-    else if (left.above != -1) {
-        ans.max = max(left.max, max(left.below, left.above + right.below + 1));
-        ans.above = left.above + 1;
-        ans.below = left.below;
-    }
-    
-    // Starting Node is in right subtree
-    else if (right.above != -1) {
-        ans.max = max(right.max, max(right.below, right.above + left.below + 1));
-        ans.above = right.above + 1;
-        ans.below = right.below;
-    }
-    
-    // Starting Node doesn't exist in the subtree
-    else {
-        ans.max = -1;
-        ans.above = -1;
-        ans.below = max(left.below, right.below) + 1;
+    int val = traverse(node->left, target, ans);
+    if (val) {
+        ans = max(ans, val + maxDepth(node->right));
+        return val + 1;
     }
 
-    return ans;
+    val = traverse(node->right, target, ans);
+    if (val) {
+        ans = max(ans, val + maxDepth(node->left));
+        return val + 1;
+    }
+
+    return 0;
 }
 
-int Solution::solve(TreeNode* A, int B) {
-    Triplet ans = timeToBurnTreeHelper(A, B);
-    return ans.max;
+int Solution::solve(TreeNode* root, int target) {
+    int ans = 0;
+    traverse(root, target, ans);
+    return ans;
 }
