@@ -1,3 +1,39 @@
+// Graph Coloring Algorithm:
+class Solution {
+public:
+    bool DFS(vector<vector<int>> & graph, vector<int> & colors, int i) {
+        if (colors[i] != 0) {
+            return colors[i] == 1;
+        }
+
+        colors[i] = -1;
+
+        for (int neighbor : graph[i]) {
+            if (!DFS(graph, colors, neighbor)) {
+                return false;
+            }
+        }
+
+        colors[i] = 1;
+        return true;
+    }
+
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        vector<int> ans;
+        vector<int> colors(graph.size());   // 0 -> No color, 1 -> Safe, -1 -> Unsafe
+
+        for (int i = 0; i < graph.size(); i++) {
+            if (DFS(graph, colors, i)) {
+                ans.push_back(i);
+            }
+        }
+
+        return ans;
+    }
+};
+
+/*
+
 class Solution {
 public:
     unordered_set<int> visitedNodes;
@@ -31,41 +67,6 @@ public:
 
         for (int i = 0; i < graph.size(); i++) {
             if (DFS(graph, i)) {
-                ans.push_back(i);
-            }
-        }
-
-        return ans;
-    }
-};
-
-/* Graph Coloring Algorithm:
-
-class Solution {
-public:
-    bool DFS(vector<vector<int>> & graph, vector<int> & colors, int i) {
-        if (colors[i] != 0) {
-            return colors[i] == 1;
-        }
-
-        colors[i] = -1;
-
-        for (int neighbor : graph[i]) {
-            if (!DFS(graph, colors, neighbor)) {
-                return false;
-            }
-        }
-
-        colors[i] = 1;
-        return true;
-    }
-
-    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
-        vector<int> ans;
-        vector<int> colors(graph.size());   // 0 -> No color, 1 -> Safe, -1 -> Unsafe
-
-        for (int i = 0; i < graph.size(); i++) {
-            if (DFS(graph, colors, i)) {
                 ans.push_back(i);
             }
         }
