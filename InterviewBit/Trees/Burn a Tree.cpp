@@ -7,26 +7,32 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
- int maxDepth(TreeNode* node) {
-     if (!node) return 0;
-     return 1 + max(maxDepth(node->left), maxDepth(node->right));
- }
+int maxDepth(TreeNode* node) {
+    if (!node) return 0;
+    return 1 + max(maxDepth(node->left), maxDepth(node->right));
+}
 
 int traverse(TreeNode* node, int target, int &ans) {
     if (!node) return 0;
 
-    if (node->val == target) return 1;
-
-    int val = traverse(node->left, target, ans);
-    if (val) {
-        ans = max(ans, val + maxDepth(node->right));
-        return val + 1;
+    // Target found, hence returning distance 1 from it, and updating ans to max of depth from target node
+    if (node->data == target) {
+        ans = max(maxDepth(node->left), maxDepth(node->right));
+        return 1;
     }
 
-    val = traverse(node->right, target, ans);
-    if (val) {
-        ans = max(ans, val + maxDepth(node->left));
-        return val + 1;
+    int currTime = traverse(node->left, target, ans);
+    // If currTime != 0, then target was found at distance = currTime
+    if (currTime) {
+        // Finding max depth on right, as target was on left
+        ans = max(ans, currTime + maxDepth(node->right));
+        return currTime + 1;
+    }
+
+    currTime = traverse(node->right, target, ans);
+    if (currTime) {
+        ans = max(ans, currTime + maxDepth(node->left));
+        return currTime + 1;
     }
 
     return 0;
