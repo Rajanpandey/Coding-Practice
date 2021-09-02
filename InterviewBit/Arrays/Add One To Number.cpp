@@ -1,16 +1,18 @@
 vector<int> Solution::plusOne(vector<int> &A) {
-    reverse(A.begin(), A.end());
-    vector<int> ans;
     int carry = 1;
-    for (auto i:A) {
-        int sum = i + carry;
-        ans.push_back(sum%10);
-        carry = sum / 10;
+    for (int i = A.size() - 1; i >= 0; i--) {
+        int sum = A[i] + carry;
+        A[i] = sum % 10;
+        if (sum < 10) {
+            carry = 0;
+            break;
+        }
     }
-    if (carry) { ans.push_back(carry%10); }
-    while (ans[ans.size() - 1] == 0 && ans.size() > 1) {
-        ans.pop_back();
+    if (carry) {
+        A.insert(A.begin(), 1);
     }
-    reverse(ans.begin(), ans.end());
-    return ans;
+    while (A.front() == 0) {
+        A.erase(A.begin());
+    }
+    return A;
 }
