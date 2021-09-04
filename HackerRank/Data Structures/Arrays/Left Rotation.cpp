@@ -1,11 +1,11 @@
-vector<int> rotLeft(vector<int> a, int d) {    
-    int newLocation, N = a.size();
-    vector<int> b(N);
-    
-    for(int i=0; i<N; i++){
-        newLocation = (i + (N - d)) % N;
-        b[newLocation] = a[i];
-    }   
-  
-    return b;
+vector<int> rotLeft(vector<int> a, int d) {
+    int n = a.size();
+    vector<int> ans(n);
+
+    for (int i = 0; i < n; i++) {
+        int newLocation = (n + i - d) % n;
+        ans[newLocation] = a[i];
+    }
+
+    return ans;
 }
