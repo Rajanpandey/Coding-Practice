@@ -18,10 +18,10 @@ This repository contains solutions of different coding problems from various web
 | Google Hash Code 2020 | 2 |
 | Google Hash Code 2021 | 14 |
 | Hack the Interview - Global | 6 |
-| HackerRank | 134 |
+| HackerRank | 135 |
 | HackerRank HackFest 2020 | 4 |
-| InterviewBit | 147 |
-| LeetCode | 208 |
+| InterviewBit | 148 |
+| LeetCode | 214 |
 | Searching | 2 |
 | Sorting | 5 |
 | TechGig | 2 |
