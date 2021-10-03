@@ -90,7 +90,7 @@ char lowerToUpper(char alphabet) {
 	return (alphabet & '_');
 }
 
-int main() {
+void main() {
 	int num = 101011;
 	int i = 3;
 	int x = 10;
@@ -120,6 +120,4 @@ int main() {
 
 	cout << upperToLower(upper) << endl;
 	cout << lowerToUpper(lower) << endl;
-
-	return 0;
 }
