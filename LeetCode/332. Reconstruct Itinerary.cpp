@@ -26,3 +26,8 @@ public:
         return ans;
     }
 };
+
+
+// For an Eulerian path, at most 1 vertx has outdegree-indegree=1
+// and at most 1 vertex has indegree-outfegdree=1.
+// All other vertices have equal in and out degree!
